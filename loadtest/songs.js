@@ -1,5 +1,4 @@
 import http from 'k6/http';
-import { sleep } from 'k6';
 import { Trend, Rate } from 'k6/metrics';
 
 // Target: k6 run -e BASE_URL=http://localhost:8080 ... to bypass nginx.
@@ -13,7 +12,7 @@ const LABEL = __ENV.LABEL || 'unlabelled';
 const PREVIOUS = (() => {
     try {
         return open('./results.md').trimEnd();
-    } catch (e) {
+    } catch {
         return '';
     }
 })();
@@ -64,7 +63,6 @@ export default function (data) {
     streamTime.add(r.timings.duration);
     streamErr.add(r.status != 206);
 
-    //sleep(1); // a real listener pauses between requests
 }
 
 export function handleSummary(data) {
