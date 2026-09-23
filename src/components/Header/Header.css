@@ -1,0 +1,14 @@
+.header {
+  padding: 20px 24px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 8, 6, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}

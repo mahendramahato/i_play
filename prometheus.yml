@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert-rules.yml"
+
+# Where to send alerts once they fire.
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093']
+
+scrape_configs:
+  # Prometheus runs inside the Compose network, so it reaches the backends by
+  # service name and port 8080 directly, never through nginx.
+  - job_name: 'spring-boot-app'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+          - 'backend1:8080'
+          - 'backend2:8080'
+          - 'backend3:8080'

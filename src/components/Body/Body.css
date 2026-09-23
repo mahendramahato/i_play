@@ -1,0 +1,70 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 16px;
+    padding: 24px;
+}
+
+.slider {
+    width: 100%;
+    max-width: 400px;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+}
+
+.song-info {
+    text-align: center;
+}
+
+.song-title {
+    font-weight: 600;
+}
+
+.song-artist,
+.time {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.controls button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    color: #111;
+    background: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+}
+
+.slider {
+    accent-color: #fff;
+}
+
+.song-title {
+    font-size: 1.4em;
+}
+
+.body {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.cover {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+}

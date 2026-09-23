@@ -1,0 +1,125 @@
+services:
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env}
+      MYSQL_DATABASE: music
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend1: &backend
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://db:3306/music
+      DB_USERNAME: root
+      DB_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: redis
+      MUSIC_DIR: /music
+    volumes:
+      - ${MUSIC_HOST_DIR:-./backend/music}:/music:ro
+    # nginx resolves each upstream name once at startup, so it must not start
+    # before every backend is actually serving, or it caches a bad address.
+    healthcheck:
+      # Purpose-built liveness endpoint. /api/songs was a bad probe: it goes
+      # through the cache, so a Redis blip marked healthy backends unhealthy.
+      test: ["CMD", "curl", "-fs", "http://localhost:8080/actuator/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 30s
+
+  # Same config as backend1 (via the &backend/<<: anchor) so all three copies
+  # of this stateless service stay identical.
+  backend2:
+    <<: *backend
+
+  backend3:
+    <<: *backend
+
+  frontend:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      backend1:
+        condition: service_healthy
+      backend2:
+        condition: service_healthy
+      backend3:
+        condition: service_healthy
+    ports:
+      - "${WEB_PORT:-80}:80"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    # Bound to 127.0.0.1 so redis-cli works from your Mac for inspecting the
+    # cache, without exposing an unauthenticated Redis to the network.
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    depends_on:
+      backend1:
+        condition: service_healthy
+      backend2:
+        condition: service_healthy
+      backend3:
+        condition: service_healthy
+    # Localhost-only: the metrics UI is unauthenticated and exposes internals.
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+      - ./alert-rules.yml:/etc/prometheus/alert-rules.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9093:9093"
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./alertmanager/smtp_password.txt:/etc/alertmanager/smtp_password.txt:ro
+      - alertmanager-data:/alertmanager
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    depends_on: 
+      - prometheus
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  db-data:
+  redis-data:
+  prometheus-data:
+  grafana-data:
+  alertmanager-data:
