@@ -15,9 +15,9 @@ jobs:
         working-directory: backend
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: temurin
@@ -29,9 +29,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: 'npm'
@@ -41,3 +41,46 @@ jobs:
         run: npm run lint
       - name: Run build
         run: npm run build
+
+  images:
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    # Pull requests run the tests but must not publish images.
+    if: github.ref == 'refs/heads/main'
+
+    # GITHUB_TOKEN is read-only by default; pushing packages needs this.
+    permissions:
+      contents: read
+      packages: write
+
+    # One job definition, run once per image, in parallel.
+    strategy:
+      matrix:
+        include:
+          - name: backend
+            context: ./backend
+          - name: frontend
+            context: .
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push ${{ matrix.name }}
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          # :latest for convenience, :<sha> so a bad deploy can be rolled back
+          # to an exact, identifiable build.
+          tags: |
+            ghcr.io/${{ github.repository }}/${{ matrix.name }}:latest
+            ghcr.io/${{ github.repository }}/${{ matrix.name }}:${{ github.sha }}
+          # Reuse layers between runs, otherwise every build recompiles the
+          # whole Maven dependency tree from scratch.
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
