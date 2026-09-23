@@ -2,12 +2,18 @@ services:
   backend1:
     build: !reset null
     image: ghcr.io/mahendramahato/i_play/backend:latest
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
   backend2:
     build: !reset null
     image: ghcr.io/mahendramahato/i_play/backend:latest
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
   backend3:
     build: !reset null
     image: ghcr.io/mahendramahato/i_play/backend:latest
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xmx256m -Xms128m"
   frontend:
     build: !reset null
     image: ghcr.io/mahendramahato/i_play/frontend:latest
