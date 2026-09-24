@@ -4,6 +4,15 @@ import './Body.css';
 // Set VITE_API_URL at build time for the server (e.g. /api/songs behind a reverse proxy).
 const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/songs';
 
+const BAR_COUNT = 64;
+const BARS = Array.from({ length: BAR_COUNT }, (_, i) => {
+    const wobble = Math.abs(
+        Math.sin(i * 0.9) * 0.5 + Math.sin(i * 0.31) * 0.3 + Math.sin(i * 2.3) * 0.2
+    );
+    const envelope = Math.sin((Math.PI * i) / (BAR_COUNT - 1)) * 0.65 + 0.35;
+    return 14 + wobble * envelope * 86;
+});
+
 function formatTime(sec) {
     if (!Number.isFinite(sec)) return '0:00';
     const m = Math.floor(sec / 60);
@@ -91,27 +100,52 @@ function Body() {
             )}
             <div className="song-info">
                 <div className="song-title">{song.title}</div>
-                {song.artist && <div className="song-artist">{song.artist}</div>}
-                {song.album && <div className="song-artist">{song.album}</div>}
+                {(song.artist || song.album) && (
+                    <div className="song-meta">
+                        {[song.artist, song.album].filter(Boolean).join(' \u00B7 ')}
+                    </div>
+                )}
             </div>
-            <input
-                className="slider"
-                type="range"
-                min="0"
-                max={duration || 0}
-                step="0.1"
-                value={currentTime}
-                onChange={seek}
-            />
-            <div className="time">
-                {formatTime(currentTime)} / {formatTime(duration)}
+            <div className="waveform">
+                <div className="waveform-bars" aria-hidden="true">
+                    {BARS.map((height, i) => {
+                        const played = duration > 0 && i / BAR_COUNT <= currentTime / duration;
+                        return (
+                            <span
+                                key={i}
+                                style={{
+                                    height: `${height}%`,
+                                    // Hue ramps red -> pink -> violet across the clip.
+                                    background: played
+                                        ? `hsl(${344 + (i / BAR_COUNT) * 60}, 90%, 62%)`
+                                        : 'rgba(255, 255, 255, 0.16)',
+                                }}
+                            />
+                        );
+                    })}
+                </div>
+                {/* A transparent range input sits on top: the bars are only a
+                    picture, while this keeps dragging, keyboard arrows and
+                    screen-reader support working for free. */}
+                <input
+                    className="waveform-input"
+                    type="range"
+                    min="0"
+                    max={duration || 0}
+                    step="0.1"
+                    value={currentTime}
+                    onChange={seek}
+                    aria-label="Seek"
+                />
             </div>
             <div className="controls">
-                <button onClick={prev} aria-label="Previous">&#9198;&#xFE0E;</button>
-                <button onClick={togglePlay} aria-label={isPlaying ? 'Pause' : 'Play'}>
+                <span className="time">{formatTime(currentTime)}</span>
+                <button className="btn" onClick={prev} aria-label="Previous">&#9198;&#xFE0E;</button>
+                <button className="btn btn-play" onClick={togglePlay} aria-label={isPlaying ? 'Pause' : 'Play'}>
                     {isPlaying ? '\u23F8\uFE0E' : '\u25B6\uFE0E'}
                 </button>
-                <button onClick={next} aria-label="Next">&#9197;&#xFE0E;</button>
+                <button className="btn" onClick={next} aria-label="Next">&#9197;&#xFE0E;</button>
+                <span className="time">{formatTime(duration)}</span>
             </div>
         </div>
     );

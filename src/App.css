@@ -1,3 +1,10 @@
+:root {
+  /* Picked from the crimson rim-light in the background artwork. */
+  --accent: #e63946;
+  --accent-bright: #ff536a;
+  --accent-dim: rgba(230, 57, 70, 0.35);
+}
+
 .app {
   position: relative;
   min-height: 100vh;
@@ -12,21 +19,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.app > header,
-.app > main,
-.app > footer {
+  /* Sits above the fixed background layer. */
   position: relative;
   z-index: 1;
 }
 
-/* ---- Background image ---- */
-.salon-bg {
+/* ---- Background artwork ----
+   The image is already near-black with the subject centre-right, so it needs
+   only a light vignette at the very bottom to keep the player controls legible;
+   a heavier overlay would wash the artwork out. */
+.bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%),
-    url('./assets/background.jpeg') center / cover no-repeat;
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.45) 72%, rgba(0, 0, 0, 0.82) 100%),
+    url('./assets/tanjiro.png') center / cover no-repeat;
+  background-color: #000;
 }
