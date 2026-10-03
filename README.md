@@ -6,29 +6,7 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    user([Browser]) -->|HTTPS| cf["Cloudflare<br/>DNS · TLS · Access"]
-    cf -->|"Tunnel (outbound only)"| nginx
-
-    subgraph vm["Oracle Cloud VM · Ampere A1 (arm64) · Docker Compose"]
-        nginx["nginx<br/>React app + /api proxy<br/>least_conn, keepalive"]
-        subgraph api["Spring Boot × 3 (stateless)"]
-            b1[backend1]
-            b2[backend2]
-            b3[backend3]
-        end
-        nginx --> api
-        api --> redis[("Redis<br/>cache")]
-        api --> mysql[("MySQL<br/>song metadata")]
-        api --> music[/"music files"/]
-        prom[Prometheus] -. scrapes .-> api
-        prom --> grafana[Grafana]
-        prom --> am[Alertmanager]
-    end
-
-    am -->|email| inbox([Owner])
-```
+![Soundly architecture](docs/architecture.svg)
 
 **How a request flows:**
 
@@ -37,26 +15,7 @@ flowchart LR
 3. nginx serves the built React app and proxies `/api/` to three identical, stateless Spring Boot backends.
 4. Each backend reads song metadata from MySQL through a shared Redis cache, and streams audio from disk with HTTP Range support so the player can seek.
 
-### Delivery pipeline
-
-```mermaid
-flowchart LR
-    push([push to main]) --> tests
-
-    subgraph gha[GitHub Actions]
-        tests["backend: 26 tests<br/>frontend: lint + build"] --> images["build arm64 images<br/>on native ARM runners"]
-    end
-
-    images --> ghcr[("GHCR<br/>:latest · :sha")]
-
-    subgraph server[Oracle VM]
-        timer["systemd timer<br/>every 5 min"] --> deploy["deploy.sh<br/>git pull<br/>compose pull<br/>compose up -d"]
-    end
-
-    ghcr --> deploy
-```
-
-Images are only published from `main`, and only after both test jobs pass. The server pulls both new images and config changes from git, since nginx, Prometheus and alerting configuration are mounted from the repo rather than built into images. Each image is tagged with its commit SHA, so any deploy can be rolled back to an exact build.
+**Delivery:** Images are only published from `main`, and only after both test jobs pass. The server pulls both new images and config changes from git, since nginx, Prometheus and alerting configuration are mounted from the repo rather than built into images. Each image is tagged with its commit SHA, so any deploy can be rolled back to an exact build.
 
 ## Tech stack
 

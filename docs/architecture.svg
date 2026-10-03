@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 860" width="1420" height="860" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+  <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+    <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#0f172a" flood-opacity="0.08"/>
+  </filter>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+  <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+  <marker id="arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+</defs>
+<rect width="1420" height="860" fill="#f7f8fa"/>
+<rect x="215" y="60" width="205" height="300" rx="16" fill="#fff7ed" stroke="#f6821f" stroke-width="1.5"/>
+<text x="233" y="86" font-size="13" fill="#f6821f" font-weight="700" text-anchor="start">Cloudflare</text>
+<rect x="440" y="60" width="630" height="700" rx="16" fill="#fff6f3" stroke="#c74634" stroke-width="1.5"/>
+<text x="458" y="86" font-size="13" fill="#c74634" font-weight="700" text-anchor="start">Oracle Cloud VM · Ampere A1 (arm64) · Docker Compose</text>
+<rect x="1110" y="60" width="290" height="600" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="1128" y="86" font-size="13" fill="#7c3aed" font-weight="700" text-anchor="start">GitHub</text>
+<text x="458" y="106" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">SERVING · ALWAYS ON</text>
+<line x1="440" y1="364" x2="1070" y2="364" stroke="#e7cfc6" stroke-dasharray="4 4"/>
+<text x="458" y="386" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">OBSERVABILITY</text>
+<line x1="440" y1="584" x2="1070" y2="584" stroke="#e7cfc6" stroke-dasharray="4 4"/>
+<text x="458" y="606" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">DELIVERY · EVERY 5 MINUTES</text>
+<text x="20" y="100" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">VISITORS</text>
+<rect x="20" y="112" width="175" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<g fill="none" stroke="#0284c7" stroke-width="1.8"><circle cx="47" cy="137" r="10"/><ellipse cx="47" cy="137" rx="4.5" ry="10"/><line x1="37" y1="137" x2="57" y2="137"/></g>
+<text x="36" y="168" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Browser</text>
+<text x="36" y="186" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">soundlyonline.com</text>
+<text x="36" y="202" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">HTTPS</text>
+<text x="20" y="620" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">OWNER</text>
+<rect x="20" y="632" width="175" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="47" cy="653" r="5" fill="#475569"/><path d="M38,667 a9,8 0 0 1 18,0 z" fill="#475569"/>
+<text x="36" y="688" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Owner</text>
+<text x="36" y="706" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">alert emails</text>
+<text x="36" y="722" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Grafana over SSH</text>
+<rect x="232" y="100" width="170" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M253,132 a5,5 0 0 1 0,-10 a7,7 0 0 1 13,-1 a5,5 0 0 1 1,11 z" fill="#f6821f"/>
+<text x="248" y="156" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Edge</text>
+<text x="248" y="174" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">DNS · TLS</text>
+<text x="248" y="190" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Access: approved</text>
+<text x="248" y="206" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">emails only</text>
+<rect x="232" y="246" width="170" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M250,281 V271 a9,9 0 0 1 18,0 V281" fill="none" stroke="#f6821f" stroke-width="2.2"/><path d="M255,281 V272 a4,4 0 0 1 8,0 V281" fill="none" stroke="#f6821f" stroke-width="2.2"/>
+<text x="248" y="302" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Tunnel</text>
+<text x="248" y="320" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">outbound only</text>
+<text x="248" y="336" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">no open ports</text>
+<path d="M195,162 H232" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M317,212 V246" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="460" y="120" width="180" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<polygon points="495.7,150.0 487.0,155.0 478.3,150.0 478.3,140.0 487.0,135.0 495.7,140.0" fill="#009639"/><text x="487" y="149.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">N</text>
+<text x="476" y="176" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">nginx</text>
+<text x="476" y="194" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">React app + /api proxy</text>
+<text x="476" y="210" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">least_conn · keepalive</text>
+<text x="476" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">listens on 127.0.0.1</text>
+<rect x="670" y="120" width="190" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="697" cy="145" r="10.5" fill="#6db33f"/><path d="M692,150 C692,141 698,139 703,139 C703,146 698,150 692,150 z" fill="#fff"/>
+<text x="686" y="176" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Spring Boot × 3</text>
+<text x="686" y="194" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">backend1 · 2 · 3</text>
+<text x="686" y="210" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">stateless</text>
+<text x="686" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">health-checked</text>
+<rect x="890" y="108" width="165" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M905,146 L915,142 L925,146 L915,150 z" fill="#dc382d" opacity="1.00"/>
+<path d="M905,141 L915,137 L925,141 L915,145 z" fill="#dc382d" opacity="0.82"/>
+<path d="M905,136 L915,132 L925,136 L915,140 z" fill="#dc382d" opacity="0.64"/>
+<text x="936" y="139" font-size="14" fill="#0f172a" font-weight="700" text-anchor="start">Redis</text>
+<text x="936" y="157" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">shared cache</text>
+<rect x="890" y="190" width="165" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<g fill="#00758f"><rect x="906" y="218" width="18" height="14"/><ellipse cx="915" cy="232" rx="9" ry="3.5"/></g><ellipse cx="915" cy="218" rx="9" ry="3.5" fill="#33a0b8"/>
+<text x="936" y="221" font-size="14" fill="#0f172a" font-weight="700" text-anchor="start">MySQL</text>
+<text x="936" y="239" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">song metadata</text>
+<rect x="890" y="272" width="165" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<g fill="#475569"><ellipse cx="910" cy="314" rx="4.5" ry="3.5"/><ellipse cx="921" cy="311" rx="4.5" ry="3.5"/></g><path d="M914,314 V300 L925,297 V311" fill="none" stroke="#475569" stroke-width="2.2"/>
+<text x="936" y="303" font-size="14" fill="#0f172a" font-weight="700" text-anchor="start">Music files</text>
+<text x="936" y="321" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">audio + cover art</text>
+<path d="M402,296 H425 V176 H460" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M640,176 H670" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M860,176 H875 M875,143 V307" fill="none" stroke="#334155" stroke-width="1.8"/>
+<path d="M875,143 H890" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M875,225 H890" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M875,307 H890" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="460" y="400" width="180" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M480,431 C482,428 481,420 487,418 C493,420 492,428 494,431 z" fill="#e6522c"/><circle cx="487" cy="433.5" r="2.2" fill="#e6522c"/>
+<text x="476" y="456" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Alertmanager</text>
+<text x="476" y="474" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">backend down · 5xx > 5%</text>
+<text x="476" y="490" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">p95 > 2 s</text>
+<text x="476" y="506" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">fires + resolves by email</text>
+<rect x="670" y="400" width="190" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="697" cy="425" r="10.5" fill="#e6522c"/><path d="M697,417 C702,422 701,426 697,428 C693,426 692,422 697,417 z" fill="#fff"/><rect x="692" y="429.5" width="10" height="1.8" fill="#fff"/><rect x="693.5" y="432.3" width="7" height="1.6" fill="#fff"/>
+<text x="686" y="456" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Prometheus</text>
+<text x="686" y="474" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">scrapes every 5 s</text>
+<text x="686" y="490" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">/actuator/prometheus</text>
+<text x="686" y="506" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">alert rules</text>
+<rect x="890" y="400" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="917" cy="425" r="9" fill="none" stroke="#f46800" stroke-width="3" stroke-dasharray="40 8"/><circle cx="917" cy="425" r="3.2" fill="#f46800"/>
+<text x="906" y="456" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Grafana</text>
+<text x="906" y="474" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">JVM + HTTP</text>
+<text x="906" y="490" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">per-instance</text>
+<text x="906" y="506" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">dashboards</text>
+<path d="M765,400 V232" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<rect x="733.5" y="306" width="63" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="765" y="320" font-size="11" fill="#ea580c" font-weight="700" text-anchor="middle">scrapes</text>
+<path d="M860,456 H890" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<path d="M670,456 H640" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<path d="M460,470 H330 V682 H195" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<rect x="355.5" y="460" width="49" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="380" y="474" font-size="11" fill="#ea580c" font-weight="700" text-anchor="middle">email</text>
+<rect x="460" y="620" width="180" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="487" cy="645" r="10" fill="none" stroke="#0f766e" stroke-width="2"/><path d="M487,639 V645 L492,648" fill="none" stroke="#0f766e" stroke-width="2" stroke-linecap="round"/>
+<text x="476" y="676" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">systemd timer</text>
+<text x="476" y="694" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">every 5 minutes</text>
+<text x="476" y="710" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">on the VM</text>
+<rect x="670" y="620" width="385" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<rect x="686" y="636" width="22" height="18" rx="3.5" fill="#0f172a"/><path d="M691,642 l4,3 l-4,3" fill="none" stroke="#fff" stroke-width="1.8"/><line x1="697" y1="649" x2="703" y2="649" stroke="#fff" stroke-width="1.8"/>
+<text x="686" y="676" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">deploy.sh</text>
+<text x="686" y="694" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">git pull · compose pull · compose up -d</text>
+<text x="686" y="710" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">restarts nginx only when a backend was replaced</text>
+<path d="M640,670 H670" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1130" y="100" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<g stroke="#f05032" stroke-width="2" fill="none"><line x1="1152" y1="118" x2="1152" y2="132"/><path d="M1152,126 C1152,122 1162,124 1162,120"/></g><g fill="#f05032"><circle cx="1152" cy="118" r="2.8"/><circle cx="1152" cy="132" r="2.8"/><circle cx="1162" cy="120" r="2.8"/></g>
+<text x="1146" y="156" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">main branch</text>
+<text x="1146" y="174" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">code + mounted config</text>
+<rect x="1130" y="240" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="1157" cy="265" r="8" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="3.2 3"/><circle cx="1157" cy="265" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="1146" y="296" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Actions · test</text>
+<text x="1146" y="314" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">26 backend tests · lint · build</text>
+<rect x="1130" y="380" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<circle cx="1157" cy="405" r="8" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="3.2 3"/><circle cx="1157" cy="405" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="1146" y="436" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Actions · images</text>
+<text x="1146" y="454" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">arm64 · native ARM runner</text>
+<rect x="1130" y="520" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<g fill="none" stroke="#7c3aed" stroke-width="1.9" stroke-linejoin="round"><path d="M1157,535 L1166,540 V550 L1157,555 L1148,550 V540 z"/><path d="M1148,540 L1157,545 L1166,540 M1157,545 V555"/></g>
+<text x="1146" y="576" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">GHCR</text>
+<text x="1146" y="594" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">:latest + :sha for every commit</text>
+<path d="M1255,192 V240" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1234.0" y="206" width="42" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="1255" y="220" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">push</text>
+<path d="M1255,332 V380" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1223.5" y="346" width="63" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="1255" y="360" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">on pass</text>
+<path d="M1255,472 V520" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="1223.5" y="486" width="63" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="1255" y="500" font-size="11" fill="#334155" font-weight="700" text-anchor="middle">publish</text>
+<path d="M1130,146 H1084 V650 H1055" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arB)"/>
+<path d="M1130,566 H1098 V690 H1055" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arB)"/>
+<rect x="1042.0" y="390" width="84" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="1084" y="404" font-size="11" fill="#2563eb" font-weight="700" text-anchor="middle">① git pull</text>
+<rect x="1063.0" y="600" width="70" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="1098" y="614" font-size="11" fill="#2563eb" font-weight="700" text-anchor="middle">② images</text>
+<rect x="20" y="784" width="1380" height="56" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="44" y="816" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">LEGEND</text>
+<path d="M130,812 H178" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="190" y="816" font-size="13" fill="#334155" font-weight="400" text-anchor="start">requests and data</text>
+<path d="M340,812 H388" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<text x="400" y="816" font-size="13" fill="#334155" font-weight="400" text-anchor="start">monitoring and alerts</text>
+<path d="M570,812 H618" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arB)"/>
+<text x="630" y="816" font-size="13" fill="#334155" font-weight="400" text-anchor="start">deployment (① ② = order deploy.sh pulls them)</text>
+<text x="1380" y="816" font-size="12" fill="#64748b" font-weight="400" text-anchor="end">Grafana, Prometheus and Alertmanager bind to localhost.</text>
+</svg>
