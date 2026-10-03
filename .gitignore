@@ -27,3 +27,6 @@ dist-ssr
 
 # Alertmanager SMTP app password
 alertmanager/smtp_password.txt
+
+# Personal design notes and interview prep - kept local
+docs/DESIGN.md

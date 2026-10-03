@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 826" width="1160" height="826" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+  <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#0f172a" flood-opacity="0.08"/></filter>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+  <marker id="arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+</defs>
+<rect width="1160" height="826" fill="#f7f8fa"/>
+<text x="40" y="48" font-size="22" fill="#0f172a" font-weight="800" text-anchor="start" xml:space="preserve">Low-level design</text>
+<text x="40" y="72" font-size="14" fill="#64748b" font-weight="400" text-anchor="start" xml:space="preserve">inside one part (the Spring Boot backend): classes, methods and data</text>
+<rect x="40" y="110" width="300" height="161" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M40,120 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#16a34a" opacity="0.12"/>
+<text x="190.0" y="129" font-size="11" fill="#16a34a" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«RestController»</text>
+<text x="190.0" y="149" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongController</text>
+<line x1="40" y1="160" x2="340" y2="160" stroke="#e2e8f0"/>
+<text x="54" y="182" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">- musicDir: Path</text>
+<line x1="40" y1="187" x2="340" y2="187" stroke="#e2e8f0"/>
+<text x="54" y="209" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ list(): List&lt;Song&gt;</text>
+<text x="54" y="226" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ get(id): Song</text>
+<text x="54" y="243" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ stream(id): audio, 206 Range</text>
+<text x="54" y="260" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ cover(id): image</text>
+<rect x="430" y="130" width="300" height="100" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M430,140 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#0284c7" opacity="0.12"/>
+<text x="580.0" y="149" font-size="11" fill="#0284c7" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«Component»</text>
+<text x="580.0" y="169" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongMetadataReader</text>
+<line x1="430" y1="180" x2="730" y2="180" stroke="#e2e8f0"/>
+<text x="444" y="202" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ read(file): Metadata</text>
+<text x="444" y="219" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ readCover(file): Cover</text>
+<rect x="820" y="110" width="300" height="127" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M820,120 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#16a34a" opacity="0.12"/>
+<text x="970.0" y="129" font-size="11" fill="#16a34a" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«ApplicationRunner»</text>
+<text x="970.0" y="149" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongLibrary</text>
+<line x1="820" y1="160" x2="1120" y2="160" stroke="#e2e8f0"/>
+<text x="834" y="182" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">- musicDir: Path</text>
+<line x1="820" y1="187" x2="1120" y2="187" stroke="#e2e8f0"/>
+<text x="834" y="209" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ run()  @CacheEvict("songs")</text>
+<text x="834" y="226" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">- register(file)</text>
+<rect x="40" y="341" width="300" height="83" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M40,351 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#16a34a" opacity="0.12"/>
+<text x="190.0" y="360" font-size="11" fill="#16a34a" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«Service»</text>
+<text x="190.0" y="380" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongService</text>
+<line x1="40" y1="391" x2="340" y2="391" stroke="#e2e8f0"/>
+<text x="54" y="413" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ findAll()  @Cacheable("songs")</text>
+<rect x="430" y="341" width="300" height="117" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M430,351 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#7c3aed" opacity="0.12"/>
+<text x="580.0" y="360" font-size="11" fill="#7c3aed" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«interface · JpaRepository»</text>
+<text x="580.0" y="380" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongRepository</text>
+<line x1="430" y1="391" x2="730" y2="391" stroke="#e2e8f0"/>
+<text x="444" y="413" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ findAll(): List&lt;Song&gt;</text>
+<text x="444" y="430" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ findById(id)</text>
+<text x="444" y="447" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ findByFileName(name)</text>
+<rect x="820" y="341" width="300" height="127" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M820,351 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#0284c7" opacity="0.12"/>
+<text x="970.0" y="360" font-size="11" fill="#0284c7" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«record»</text>
+<text x="970.0" y="380" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">SongFileName</text>
+<line x1="820" y1="391" x2="1120" y2="391" stroke="#e2e8f0"/>
+<text x="834" y="413" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">contentType, artist, title</text>
+<line x1="820" y1="418" x2="1120" y2="418" stroke="#e2e8f0"/>
+<text x="834" y="440" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ parse(fileName)</text>
+<text x="834" y="457" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">   "Artist - Title.mp3"</text>
+<rect x="40" y="538" width="300" height="117" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M40,548 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#ea580c" opacity="0.12"/>
+<text x="190.0" y="557" font-size="11" fill="#ea580c" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«Configuration»</text>
+<text x="190.0" y="577" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">CacheConfig</text>
+<line x1="40" y1="588" x2="340" y2="588" stroke="#e2e8f0"/>
+<text x="54" y="610" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ errorHandler(): log + use DB</text>
+<text x="54" y="627" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ lettuce: REJECT_COMMANDS</text>
+<text x="54" y="644" font-size="12" fill="#0f172a" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">  redis timeout 200 ms</text>
+<rect x="430" y="538" width="300" height="168" rx="10" fill="#fff" stroke="#e2e8f0" filter="url(#sh)"/>
+<path d="M430,548 a10,10 0 0 1 10,-10 h280 a10,10 0 0 1 10,10 v40 h-300 z" fill="#7c3aed" opacity="0.12"/>
+<text x="580.0" y="557" font-size="11" fill="#7c3aed" font-weight="600" text-anchor="middle" font-style="italic" xml:space="preserve">«Entity · table song»</text>
+<text x="580.0" y="577" font-size="15" fill="#0f172a" font-weight="800" text-anchor="middle" xml:space="preserve">Song</text>
+<line x1="430" y1="588" x2="730" y2="588" stroke="#e2e8f0"/>
+<text x="444" y="610" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">id: Long</text>
+<text x="444" y="627" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">title, artist, album: String</text>
+<text x="444" y="644" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">fileName: String  (unique)</text>
+<text x="444" y="661" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">contentType: String</text>
+<text x="444" y="678" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">durationSec: Integer</text>
+<text x="444" y="695" font-size="12" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">hasCover: Boolean</text>
+<path d="M190.0,271 V341" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="169.8" y="296.0" width="40.4" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="190.0" y="310.0" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">list</text>
+<path d="M340,180.0 H430" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="361.5" y="152.0" width="47.0" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="385.0" y="166.0" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">cover</text>
+<path d="M340,249 H385 V367 H430" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="338.4" y="309" width="93.19999999999999" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="385" y="323" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">get / stream</text>
+<path d="M340,392.5 H430" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M820,180.0 H730" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="738.3" y="152.0" width="73.4" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="775.0" y="166.0" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">read tags</text>
+<path d="M970.0,237 V341" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="930.0" y="279.0" width="80.0" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="970.0" y="293.0" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">parse name</text>
+<path d="M820,219 H775 V401 H730" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="725.1" y="309" width="99.8" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="775" y="323" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">save / delete</text>
+<path d="M580.0,458 V538" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<rect x="553.2" y="488.0" width="53.599999999999994" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="580.0" y="502.0" font-size="11" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">stores</text>
+<path d="M190.0,538 V424" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<rect x="123.6" y="471.0" width="132.8" height="20" rx="10" fill="#fff" stroke="#e2e8f0"/>
+<text x="190.0" y="485.0" font-size="11" fill="#ea580c" font-weight="700" text-anchor="middle" xml:space="preserve">guards cache calls</text>
+<rect x="40" y="746" width="1080" height="50" rx="12" fill="#fff" stroke="#e2e8f0"/>
+<text x="64" y="776" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" xml:space="preserve">LEGEND</text>
+<path d="M140,771 H188" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<text x="200" y="776" font-size="13" fill="#334155" font-weight="400" text-anchor="start" xml:space="preserve">calls / uses</text>
+<path d="M320,771 H368" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#arO)"/>
+<text x="380" y="776" font-size="13" fill="#334155" font-weight="400" text-anchor="start" xml:space="preserve">configures</text>
+<text x="500" y="776" font-size="13" fill="#334155" font-weight="400" text-anchor="start" font-family="SFMono-Regular, Menlo, Consolas, monospace" xml:space="preserve">+ public   - private   «role in Spring»</text>
+</svg>

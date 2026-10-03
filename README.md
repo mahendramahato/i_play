@@ -19,6 +19,16 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 
 **Delivery:** Images are only published from `main`, and only after both test jobs pass. The server pulls both new images and config changes from git, since nginx, Prometheus and alerting configuration are mounted from the repo rather than built into images. Each image is tagged with its commit SHA, so any deploy can be rolled back to an exact build.
 
+## Design
+
+**High-level design**: the parts of the system and how they connect.
+
+![High-level design](docs/hld.svg)
+
+**Low-level design**: inside the Spring Boot backend: classes, methods and data model.
+
+![Low-level design](docs/lld.svg)
+
 ## Tech stack
 
 | Layer | Technology |
