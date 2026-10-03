@@ -1,0 +1,9 @@
+[Unit]
+Description=Check for i_play updates
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
