@@ -4,6 +4,8 @@ A self-hosted music streaming service: a React player in front of three load-bal
 
 The live instance at [soundlyonline.com](https://soundlyonline.com) is access-restricted, because it serves a personal music library. Access for a demo is available on request.
 
+![Soundly player](docs/screenshot.jpg)
+
 ## Architecture
 
 ![Soundly architecture](docs/architecture.svg)
