@@ -41,24 +41,6 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 | Delivery | Docker Compose, GitHub Actions, GitHub Container Registry, systemd |
 | Testing | JUnit 5, Mockito, MockMvc, H2, k6 |
 
-## Engineering highlights
-
-Each of these came from measuring the system rather than assuming how it behaves.
-
-**A cache outage could take down the whole API, and was fixed.**
-Chaos drills showed that with Redis down, requests to the cached endpoint hung for the entire outage (around 5 minutes in testing) instead of failing over. The Redis client queues commands while it reconnects, and Spring's default cache error handler rethrows. The fix was three changes: a logging error handler that falls back to MySQL, rejecting commands while disconnected, and a 200 ms timeout for a Redis that is frozen rather than dead. Afterwards, with Redis down, the API answered in about 0.2 s with 0% errors under 100 concurrent users. A regression test guards this fix, and it was checked by confirming that the test **fails** when the fix is removed.
-
-**Caching the database query made no measurable difference, and that was the useful result.**
-Adding Redis left p95 latency exactly where it was (272 ms). The database lookup it removed took only 1-3 ms of each request, so it had never been the bottleneck. An optimization can only save the time spent in the thing it optimizes.
-
-**A 10x slowdown turned out to be the environment, not the architecture.**
-The full Docker stack on macOS ran at about 141 requests per second, versus 1,440 for the same backend running natively on the same machine. Comparing like with like traced the gap to Docker Desktop's virtualization layer, especially bind-mounted audio files, rather than to the load balancer or the database.
-
-**Load balancing exposed how nginx caches DNS.**
-nginx resolves upstream hostnames once at startup. When containers were recreated with new IPs, it marked two of the three backends unreachable and sent every request to the one that was left. Health-check-gated startup ordering and a deploy step that restarts nginx only when backends are replaced fixed it. Distribution was verified as even: 1,485, 1,494 and 1,414 requests across the three backends.
-
-Full write-ups: [failure drills](loadtest/failure-drills.md) · [load-test results](loadtest/results.md)
-
 ## Testing
 
 26 tests, none of which need MySQL, Redis or Docker to run, so they run unchanged in CI.
