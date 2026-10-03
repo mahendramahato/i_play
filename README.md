@@ -89,9 +89,3 @@ docker compose up -d --build       # http://localhost
 The server runs the same Compose stack with `docker-compose.prod.yml` layered on top, which swaps local builds for the published images.
 
 [`deploy/`](deploy/) contains the deploy script and the systemd service and timer that run it every five minutes.
-
-## Known limitations
-
-- nginx is a single point of failure. Three backends don't help if the one proxy in front of them stops.
-- If MySQL is down, `/stream` waits instead of failing fast. Redis already has this kind of timeout; the database doesn't yet.
-- The player has no song list yet. Prev and Next are the only way to move between tracks.
