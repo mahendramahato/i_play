@@ -50,11 +50,9 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 | `SongFileNameTest` | Deriving artist and title from file names |
 | `SongControllerTest` | HTTP contract: status codes, Range requests (206), path-traversal refusal |
 | `SongLibraryTest` | Syncing the music folder with the database, on in-memory H2 |
-| `CacheDegradationTest` | Regression test for the Redis outage: serves from the database when the cache is unreachable |
+| `CacheDegradationTest` | Serves from the database, without hanging, when Redis is unreachable |
 
-```bash
-cd backend && ./mvnw test
-```
+Run them with `cd backend && ./mvnw test`.
 
 ## Observability and alerting
 
@@ -86,25 +84,14 @@ cp .env.example .env               # set DB_PASSWORD
 docker compose up -d --build       # http://localhost
 ```
 
-Frontend with hot reload, using the backend from the stack above:
-
-```bash
-echo "VITE_API_URL=http://localhost/api/songs" > .env.local
-npm install && npm run dev         # http://localhost:5173
-```
-
 ## Deployment
 
-The server runs the same Compose stack with `docker-compose.prod.yml` layered on top, which swaps local builds for the published images:
-
-```bash
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-```
+The server runs the same Compose stack with `docker-compose.prod.yml` layered on top, which swaps local builds for the published images.
 
 [`deploy/`](deploy/) contains the deploy script and the systemd service and timer that run it every five minutes.
 
 ## Known limitations
 
 - nginx is a single point of failure. Three backends don't help if the one proxy in front of them stops.
-- If MySQL is down, `/stream` waits instead of failing fast. This is the database-side version of the Redis issue described above.
+- If MySQL is down, `/stream` waits instead of failing fast. Redis already has this kind of timeout; the database doesn't yet.
 - The player has no song list yet. Prev and Next are the only way to move between tracks.
