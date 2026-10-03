@@ -44,7 +44,10 @@ jobs:
 
   images:
     needs: [backend, frontend]
-    runs-on: ubuntu-latest
+    # Native ARM runner (free for public repos). The deploy target is an Oracle
+    # Ampere VM (aarch64), and building arm64 here avoids QEMU emulation, which
+    # would turn a 2-minute Maven build into 15+.
+    runs-on: ubuntu-24.04-arm
     # Pull requests run the tests but must not publish images.
     if: github.ref == 'refs/heads/main'
 
@@ -78,6 +81,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ${{ matrix.context }}
+          platforms: linux/arm64
           push: true
           # :latest for convenience, :<sha> so a bad deploy can be rolled back
           # to an exact, identifiable build.
