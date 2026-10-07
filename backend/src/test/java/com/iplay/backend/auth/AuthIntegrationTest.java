@@ -107,6 +107,33 @@ class AuthIntegrationTest {
     }
 
     @Test
+    @DisplayName("a real browser sign-in through the HTTPS proxy succeeds (Origin header included)")
+    void sameSiteBrowserLoginBehindProxy() throws Exception {
+        // Browsers send Origin on every POST. TLS ends at Caddy, so without trusting
+        // the forwarded headers Spring sees http:// and rejects this as cross-site (403).
+        mvc.perform(post("/api/login")
+                        .header("Origin", "https://m-stream.duckdns.org")
+                        .header("X-Forwarded-Proto", "https")
+                        .header("X-Forwarded-Host", "m-stream.duckdns.org")
+                        .header("X-Forwarded-For", "203.0.113.5")
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"password\":\"open-sesame\"}"))
+                .andExpect(status().isNoContent())
+                .andExpect(header().string("Set-Cookie", containsString("Secure")));
+    }
+
+    @Test
+    @DisplayName("a sign-in POST from another site is still rejected")
+    void crossSiteLoginRejected() throws Exception {
+        mvc.perform(post("/api/login")
+                        .header("Origin", "https://evil.example")
+                        .header("X-Forwarded-Proto", "https")
+                        .header("X-Forwarded-Host", "m-stream.duckdns.org")
+                        .header("X-Forwarded-For", "203.0.113.6")
+                        .contentType(MediaType.APPLICATION_JSON).content("{\"password\":\"open-sesame\"}"))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
     @DisplayName("logout clears the cookie")
     void logoutClearsCookie() throws Exception {
         mvc.perform(post("/api/logout"))
