@@ -139,6 +139,27 @@
     outline-offset: 3px;
 }
 
+/* Quiet, top-right: present when the lock is on, never competing with the player. */
+.sign-out {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.75);
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.sign-out:hover {
+    color: #fff;
+    border-color: var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .body { animation: none; }
     .btn { transition: none; }

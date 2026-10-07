@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Login from '../Login/Login';
 import './Body.css';
 
 // Set VITE_API_URL at build time for the server (e.g. /api/songs behind a reverse proxy).
 const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/songs';
+// Login, logout and session live one level up: /api/login rather than /api/songs/login.
+const API_BASE = API.replace(/\/songs$/, '');
 
 const BAR_COUNT = 64;
 const BARS = Array.from({ length: BAR_COUNT }, (_, i) => {
@@ -32,15 +35,47 @@ function Body() {
     const [duration, setDuration] = useState(0);
     const [error, setError] = useState('');
 
+    // checked: has the session check returned. enabled: is the server's lock on.
+    // ok: may we load music (lock off, or a valid session cookie).
+    const [auth, setAuth] = useState({ checked: false, enabled: false, ok: false });
+
     useEffect(() => {
-        fetch(API)
+        fetch(`${API_BASE}/session`)
             .then((res) => {
                 if (!res.ok) throw new Error();
                 return res.json();
             })
-            .then(setSongs)
+            .then((s) => setAuth({ checked: true, enabled: s.authEnabled, ok: s.authenticated }))
+            .catch(() => setError('Could not reach the server.'));
+    }, []);
+
+    const loadSongs = useCallback(() => {
+        fetch(API)
+            .then((res) => {
+                // Session expired or was cleared: back to the sign-in screen.
+                if (res.status === 401) {
+                    setAuth((a) => ({ ...a, ok: false }));
+                    return null;
+                }
+                if (!res.ok) throw new Error();
+                return res.json();
+            })
+            .then((data) => data && setSongs(data))
             .catch(() => setError('Could not load songs. Is the backend running?'));
     }, []);
+
+    useEffect(() => {
+        if (auth.ok) loadSongs();
+    }, [auth.ok, loadSongs]);
+
+    const signOut = async () => {
+        wantPlayingRef.current = false;
+        audioRef.current?.pause();
+        await fetch(`${API_BASE}/logout`, { method: 'POST' }).catch(() => {});
+        setSongs([]);
+        setIndex(0);
+        setAuth((a) => ({ ...a, ok: false }));
+    };
 
     const song = songs[index];
 
@@ -82,10 +117,19 @@ function Body() {
     };
 
     if (error) return <div className="body">{error}</div>;
+    if (!auth.checked) return <div className="body" />;
+    if (auth.enabled && !auth.ok) {
+        return <Login apiBase={API_BASE} onSuccess={() => setAuth((a) => ({ ...a, ok: true }))} />;
+    }
     if (!song) return <div className="body">No songs yet</div>;
 
     return (
         <div className="body">
+            {auth.enabled && (
+                <button className="sign-out" onClick={signOut}>
+                    Sign out
+                </button>
+            )}
             <audio
                 ref={audioRef}
                 src={`${API}/${song.id}/stream`}

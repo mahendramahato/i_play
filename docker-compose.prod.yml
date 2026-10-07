@@ -17,3 +17,14 @@ services:
   frontend:
     build: !reset null
     image: ghcr.io/mahendramahato/i_play/frontend:latest
+    # The pipeline project's Caddy (ports 80/443, Let's Encrypt) proxies
+    # m-stream.duckdns.org to this container under the name "soundly".
+    networks:
+      default:
+      pipeline:
+        aliases: [soundly]
+
+networks:
+  pipeline:
+    external: true
+    name: weather-seismic-pipeline_default
