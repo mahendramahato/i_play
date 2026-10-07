@@ -11,54 +11,60 @@
     <path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
 </defs>
 <rect width="1420" height="860" fill="#f7f8fa"/>
-<rect x="215" y="60" width="205" height="300" rx="16" fill="#fff7ed" stroke="#f6821f" stroke-width="1.5"/>
-<text x="233" y="86" font-size="13" fill="#f6821f" font-weight="700" text-anchor="start">Cloudflare</text>
-<rect x="440" y="60" width="630" height="700" rx="16" fill="#fff6f3" stroke="#c74634" stroke-width="1.5"/>
-<text x="458" y="86" font-size="13" fill="#c74634" font-weight="700" text-anchor="start">Oracle Cloud VM · Ampere A1 (arm64) · Docker Compose</text>
+<rect x="215" y="60" width="855" height="700" rx="16" fill="#fff6f3" stroke="#c74634" stroke-width="1.5"/>
+<text x="233" y="86" font-size="13" fill="#c74634" font-weight="700" text-anchor="start">Oracle Cloud VM · Ampere A1 (arm64) · Docker Compose</text>
 <rect x="1110" y="60" width="290" height="600" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
 <text x="1128" y="86" font-size="13" fill="#7c3aed" font-weight="700" text-anchor="start">GitHub</text>
-<text x="458" y="106" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">SERVING · ALWAYS ON</text>
-<line x1="440" y1="364" x2="1070" y2="364" stroke="#e7cfc6" stroke-dasharray="4 4"/>
-<text x="458" y="386" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">OBSERVABILITY</text>
-<line x1="440" y1="584" x2="1070" y2="584" stroke="#e7cfc6" stroke-dasharray="4 4"/>
-<text x="458" y="606" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">DELIVERY · EVERY 5 MINUTES</text>
+<text x="233" y="106" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">SERVING · ALWAYS ON</text>
+<line x1="215" y1="364" x2="1070" y2="364" stroke="#e7cfc6" stroke-dasharray="4 4"/>
+<text x="233" y="386" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">OBSERVABILITY</text>
+<line x1="215" y1="584" x2="1070" y2="584" stroke="#e7cfc6" stroke-dasharray="4 4"/>
+<text x="233" y="606" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">DELIVERY · EVERY 5 MINUTES</text>
 <text x="20" y="100" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">VISITORS</text>
 <rect x="20" y="112" width="175" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <g fill="none" stroke="#0284c7" stroke-width="1.8"><circle cx="47" cy="137" r="10"/><ellipse cx="47" cy="137" rx="4.5" ry="10"/><line x1="37" y1="137" x2="57" y2="137"/></g>
 <text x="36" y="168" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Browser</text>
-<text x="36" y="186" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">soundlyonline.com</text>
+<text x="36" y="186" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">m-stream.duckdns.org</text>
 <text x="36" y="202" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">HTTPS</text>
+<text x="20" y="254" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">DNS</text>
+<rect x="20" y="266" width="175" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<rect x="37" y="282" width="20" height="5.5" rx="1.5" fill="#ca8a04" opacity="1.0"/>
+<circle cx="41" cy="284.75" r="1.2" fill="#fff"/>
+<rect x="37" y="289" width="20" height="5.5" rx="1.5" fill="#ca8a04" opacity="0.8"/>
+<circle cx="41" cy="291.75" r="1.2" fill="#fff"/>
+<rect x="37" y="296" width="20" height="5.5" rx="1.5" fill="#ca8a04" opacity="0.6"/>
+<circle cx="41" cy="298.75" r="1.2" fill="#fff"/>
+<text x="36" y="322" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">DuckDNS</text>
+<text x="36" y="340" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">m-stream.duckdns.org</text>
+<text x="36" y="356" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">→ the VM's public IP</text>
+<path d="M107,266 V212" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+<rect x="79.0" y="229" width="56" height="20" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="107" y="243" font-size="11" fill="#64748b" font-weight="700" text-anchor="middle">lookup</text>
 <text x="20" y="620" font-size="11" fill="#64748b" font-weight="700" text-anchor="start" letter-spacing="0.6">OWNER</text>
 <rect x="20" y="632" width="175" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <circle cx="47" cy="653" r="5" fill="#475569"/><path d="M38,667 a9,8 0 0 1 18,0 z" fill="#475569"/>
 <text x="36" y="688" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Owner</text>
 <text x="36" y="706" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">alert emails</text>
 <text x="36" y="722" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Grafana over SSH</text>
-<rect x="232" y="100" width="170" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
-<path d="M253,132 a5,5 0 0 1 0,-10 a7,7 0 0 1 13,-1 a5,5 0 0 1 1,11 z" fill="#f6821f"/>
-<text x="248" y="156" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Edge</text>
-<text x="248" y="174" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">DNS · TLS</text>
-<text x="248" y="190" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">Access: approved</text>
-<text x="248" y="206" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">emails only</text>
-<rect x="232" y="246" width="170" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
-<path d="M250,281 V271 a9,9 0 0 1 18,0 V281" fill="none" stroke="#f6821f" stroke-width="2.2"/><path d="M255,281 V272 a4,4 0 0 1 8,0 V281" fill="none" stroke="#f6821f" stroke-width="2.2"/>
-<text x="248" y="302" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Tunnel</text>
-<text x="248" y="320" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">outbound only</text>
-<text x="248" y="336" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">no open ports</text>
+<rect x="232" y="120" width="190" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+<rect x="251" y="144" width="16" height="12" rx="2.5" fill="#1f883d"/><path d="M254.5,144 V140.5 a4.5,4.5 0 0 1 9,0 V144" fill="none" stroke="#1f883d" stroke-width="2.2"/><circle cx="259" cy="150" r="1.8" fill="#fff"/>
+<text x="248" y="176" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Caddy</text>
+<text x="248" y="194" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">HTTPS · Let's Encrypt</text>
+<text x="248" y="210" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">sign-in rate limit</text>
+<text x="248" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">shared by 3 projects</text>
 <path d="M195,162 H232" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
-<path d="M317,212 V246" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
 <rect x="460" y="120" width="180" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <polygon points="495.7,150.0 487.0,155.0 478.3,150.0 478.3,140.0 487.0,135.0 495.7,140.0" fill="#009639"/><text x="487" y="149.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">N</text>
 <text x="476" y="176" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">nginx</text>
 <text x="476" y="194" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">React app + /api proxy</text>
 <text x="476" y="210" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">least_conn · keepalive</text>
-<text x="476" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">listens on 127.0.0.1</text>
+<text x="476" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">shared Docker network</text>
 <rect x="670" y="120" width="190" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <circle cx="697" cy="145" r="10.5" fill="#6db33f"/><path d="M692,150 C692,141 698,139 703,139 C703,146 698,150 692,150 z" fill="#fff"/>
 <text x="686" y="176" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Spring Boot × 3</text>
 <text x="686" y="194" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">backend1 · 2 · 3</text>
 <text x="686" y="210" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">stateless</text>
-<text x="686" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">health-checked</text>
+<text x="686" y="226" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">password lock (HMAC cookie)</text>
 <rect x="890" y="108" width="165" height="70" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <path d="M905,146 L915,142 L925,146 L915,150 z" fill="#dc382d" opacity="1.00"/>
 <path d="M905,141 L915,137 L925,141 L915,145 z" fill="#dc382d" opacity="0.82"/>
@@ -73,7 +79,7 @@
 <g fill="#475569"><ellipse cx="910" cy="314" rx="4.5" ry="3.5"/><ellipse cx="921" cy="311" rx="4.5" ry="3.5"/></g><path d="M914,314 V300 L925,297 V311" fill="none" stroke="#475569" stroke-width="2.2"/>
 <text x="936" y="303" font-size="14" fill="#0f172a" font-weight="700" text-anchor="start">Music files</text>
 <text x="936" y="321" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">audio + cover art</text>
-<path d="M402,296 H425 V176 H460" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
+<path d="M422,176 H460" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
 <path d="M640,176 H670" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
 <path d="M860,176 H875 M875,143 V307" fill="none" stroke="#334155" stroke-width="1.8"/>
 <path d="M875,143 H890" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#ar)"/>
@@ -123,7 +129,7 @@
 <rect x="1130" y="240" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <circle cx="1157" cy="265" r="8" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="3.2 3"/><circle cx="1157" cy="265" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
 <text x="1146" y="296" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Actions · test</text>
-<text x="1146" y="314" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">26 backend tests · lint · build</text>
+<text x="1146" y="314" font-size="12" fill="#64748b" font-weight="400" text-anchor="start">47 backend tests · lint · build</text>
 <rect x="1130" y="380" width="250" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
 <circle cx="1157" cy="405" r="8" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="3.2 3"/><circle cx="1157" cy="405" r="6" fill="none" stroke="#2563eb" stroke-width="2"/>
 <text x="1146" y="436" font-size="15" fill="#0f172a" font-weight="700" text-anchor="start">Actions · images</text>

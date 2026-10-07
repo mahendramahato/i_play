@@ -2,7 +2,7 @@
 
 A self-hosted music streaming service: a React player in front of three load-balanced Spring Boot backends, with caching, monitoring, alerting, failure testing and automated deployment to a cloud VM.
 
-The live instance at [soundlyonline.com](https://soundlyonline.com) is access-restricted, because it serves a personal music library. Access for a demo is available on request.
+The live instance at [m-stream.duckdns.org](https://m-stream.duckdns.org) is password-protected, because it serves a personal music library. A demo is available on request.
 
 ![Soundly player](docs/screenshot.jpg)
 
@@ -12,8 +12,8 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 
 **How a request flows:**
 
-1. Cloudflare terminates TLS and checks identity with Cloudflare Access. Unauthenticated requests never reach the server.
-2. A Cloudflare Tunnel carries traffic to the VM over an outbound connection, so the VM has no inbound ports open.
+1. DuckDNS points `m-stream.duckdns.org` at the VM. Caddy terminates HTTPS with a Let's Encrypt certificate and rate-limits sign-in attempts. The same Caddy also serves the owner's other projects on this VM.
+2. Caddy proxies to Soundly's nginx over a shared Docker network, so Soundly itself publishes no public ports.
 3. nginx serves the built React app and proxies `/api/` to three identical, stateless Spring Boot backends.
 4. Each backend reads song metadata from MySQL through a shared Redis cache, and streams audio from disk with HTTP Range support so the player can seek.
 
@@ -36,20 +36,21 @@ The live instance at [soundlyonline.com](https://soundlyonline.com) is access-re
 | Frontend | React 19, Vite 8 |
 | Backend | Java 21, Spring Boot 4.1, Spring Data JPA, Spring Cache |
 | Data | MySQL 8, Redis 7 |
-| Edge | nginx, Cloudflare Tunnel, Cloudflare Access |
+| Edge | Caddy (Let's Encrypt), DuckDNS, nginx |
 | Observability | Micrometer, Prometheus, Grafana, Alertmanager |
 | Delivery | Docker Compose, GitHub Actions, GitHub Container Registry, systemd |
 | Testing | JUnit 5, Mockito, MockMvc, H2, k6 |
 
 ## Testing
 
-26 tests, none of which need MySQL, Redis or Docker to run, so they run unchanged in CI.
+47 tests, none of which need MySQL, Redis or Docker to run, so they run unchanged in CI.
 
 | Suite | Scope |
 |---|---|
 | `SongFileNameTest` | Deriving artist and title from file names |
 | `SongControllerTest` | HTTP contract: status codes, Range requests (206), path-traversal refusal |
 | `SongLibraryTest` | Syncing the music folder with the database, on in-memory H2 |
+| `AuthIntegrationTest`, `SessionTokensTest`, `LoginGuardTest`, `AuthSettingsTest` | The password lock: locked endpoints, cookie signing and expiry, forged cookies, brute-force blocking |
 | `CacheDegradationTest` | Serves from the database, without hanging, when Redis is unreachable |
 
 Run them with `cd backend && ./mvnw test`.
@@ -60,8 +61,10 @@ Each backend exposes Micrometer metrics at `/actuator/prometheus`. Prometheus sc
 
 ## Security
 
-- **Identity at the edge:** Cloudflare Access allows only approved emails. Everyone else is stopped at Cloudflare.
-- **No open ports:** the tunnel connects outbound, and the site itself listens only on `127.0.0.1`.
+- **Password lock:** one password unlocks the site. Signing in sets an HttpOnly, Secure cookie holding an expiry and its HMAC signature, so any of the three backends can verify it without shared session state. The song list, audio and cover art return `401` without it.
+- **Brute-force limits:** Caddy allows 10 sign-in attempts per IP per 15 minutes before requests reach the app, and each backend also limits failed attempts per client and in total.
+- **HTTPS only:** Caddy redirects HTTP to HTTPS and sends HSTS and other security headers.
+- **Minimal exposure:** only Caddy's ports 80 and 443 are public. Soundly listens on `127.0.0.1` and the shared Docker network.
 - **Secrets stay out of git:** database and SMTP credentials live only on the server. The repo ships `.env.example` as a template.
 - **Path traversal:** stream requests that resolve outside the music folder are refused, and there is a test for it.
 
@@ -73,8 +76,11 @@ Each backend exposes Micrometer metrics at `/actuator/prometheus`. Prometheus sc
 | GET | `/api/songs/{id}` | One song |
 | GET | `/api/songs/{id}/stream` | Audio, with Range support |
 | GET | `/api/songs/{id}/cover` | Embedded cover art |
+| POST | `/api/login` | Signs in with the password and sets the session cookie |
+| POST | `/api/logout` | Clears the session cookie |
+| GET | `/api/session` | Whether the lock is on and whether this browser is signed in |
 
-The API is read-only. Songs are added by placing audio files in the music folder. On startup, the backend reads their tags and syncs the database.
+When the lock is on, the `/api/songs` endpoints require a session. Apart from signing in, the API is read-only. Songs are added by placing audio files in the music folder. On startup, the backend reads their tags and syncs the database.
 
 ## Running locally
 
