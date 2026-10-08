@@ -1,10 +1,11 @@
 import Body from './components/Body/Body'
+import Visualizer from './components/Visualizer/Visualizer'
 import './App.css'
 
 function App() {
   return (
     <div className="app">
-      <div className="bg" aria-hidden="true" />
+      <Visualizer />
       <main>
         <Body />
       </main>

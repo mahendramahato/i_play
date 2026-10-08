@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Login from '../Login/Login';
+import { attachAnalyser } from '../../audio/analyser';
 import './Body.css';
 
 // Set VITE_API_URL at build time for the server (e.g. /api/songs behind a reverse proxy).
@@ -93,6 +94,8 @@ function Body() {
             audio.pause();
         } else {
             wantPlayingRef.current = true;
+            // Runs inside the click, which is when browsers allow Web Audio to start.
+            attachAnalyser(audio);
             audio.play().catch(() => setIsPlaying(false));
         }
     };
