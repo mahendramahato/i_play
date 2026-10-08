@@ -48,3 +48,15 @@
 | drill5-redis-paused | Songs | 100 | 134.9 | 368 ms | 0.0% | 2026-09-23 05:57 |
 | drill5-redis-paused | Cover | 100 | n/a | n/a | n/a | 2026-09-23 05:57 |
 | drill5-redis-paused | Stream | 100 | 134.9 | 838 ms | 0.0% | 2026-09-23 05:57 |
+| oracle-1vu | Songs | 1 | 80.7 | 5 ms | 0.0% | 2026-10-03 18:12 |
+| oracle-1vu | Cover | 1 | n/a | n/a | n/a | 2026-10-03 18:12 |
+| oracle-1vu | Stream | 1 | 80.7 | 12 ms | 0.0% | 2026-10-03 18:12 |
+| oracle-10vu | Songs | 10 | 247.2 | 23 ms | 0.0% | 2026-10-03 18:13 |
+| oracle-10vu | Cover | 10 | n/a | n/a | n/a | 2026-10-03 18:13 |
+| oracle-10vu | Stream | 10 | 247.2 | 47 ms | 0.0% | 2026-10-03 18:13 |
+| oracle-25vu | Songs | 25 | 297.6 | 57 ms | 0.0% | 2026-10-03 18:13 |
+| oracle-25vu | Cover | 25 | n/a | n/a | n/a | 2026-10-03 18:13 |
+| oracle-25vu | Stream | 25 | 297.6 | 91 ms | 0.0% | 2026-10-03 18:13 |
+| oracle-5vu | Songs | 5 | 209.8 | 13 ms | 0.0% | 2026-10-03 18:13 |
+| oracle-5vu | Cover | 5 | n/a | n/a | n/a | 2026-10-03 18:13 |
+| oracle-5vu | Stream | 5 | 209.8 | 28 ms | 0.0% | 2026-10-03 18:13 |
